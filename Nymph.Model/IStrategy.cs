@@ -2,5 +2,5 @@
 
 public interface IStrategy
 {
-    public Seq<Item> SearchItems(State state);
+    public Seq<Group> SearchItems(State state);
 }
