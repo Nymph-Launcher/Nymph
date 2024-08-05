@@ -11,7 +11,7 @@ public abstract record Group
     /// <param name="Item">Item to be previewed.</param>
     /// <typeparam name="TItem">Type of the previewed item.</typeparam>
     public record ItemPreview<TItem>(TItem Item) : Group where TItem : Item;
-    
+
     /// <summary>
     /// Group for unfolding a list of items.
     /// </summary>
