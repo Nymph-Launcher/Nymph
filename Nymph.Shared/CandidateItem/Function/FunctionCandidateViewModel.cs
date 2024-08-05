@@ -4,7 +4,7 @@ using ReactiveUI;
 namespace Nymph.Shared.CandidateItem.Function;
 
 /// <summary>
-/// Implementation of the default candidate view model for function item.
+/// Implementation of <see cref="IFunctionCandidateViewModel{TParam, TResult}"/> for <see cref="Item.Function{TParam, TResult}"/>.
 /// </summary>
 /// <param name="item">Function item.</param>
 /// <typeparam name="TParam">Type of the parameter of function item.</typeparam>

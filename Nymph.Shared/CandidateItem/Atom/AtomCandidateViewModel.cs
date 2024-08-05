@@ -4,7 +4,7 @@ using ReactiveUI;
 namespace Nymph.Shared.CandidateItem.Atom;
 
 /// <summary>
-/// Implementation of the default candidate view model for atom item.
+/// Implementation of <see cref="IAtomCandidateViewModel{TValue}"/> for <see cref="Item.Atom{TValue}"/>.
 /// </summary>
 /// <param name="item">Atom item.</param>
 /// <typeparam name="TValue">Type of the value inside atom item.</typeparam>

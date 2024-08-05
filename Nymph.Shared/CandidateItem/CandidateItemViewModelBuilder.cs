@@ -5,7 +5,7 @@
 /// </summary>
 public class CandidateItemViewModelBuilder
 {
-    public ICandidateItemViewModel Build(Model.Item item)
+    public ICandidateItemViewModel<Model.Item> Build(Model.Item item)
     {
         throw new NotImplementedException();
     }

@@ -7,12 +7,12 @@ namespace Nymph.Shared.CandidateItem;
 /// </summary>
 public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemContainerViewModel
 {
-    private ICandidateItemViewModel? _viewModel;
+    private ICandidateItemViewModel<Model.Item>? _viewModel;
 
     /// <summary>
     /// Inner view model to be rendered.
     /// </summary>
-    public ICandidateItemViewModel? ViewModel
+    public ICandidateItemViewModel<Model.Item>? ViewModel
     {
         get => _viewModel;
         set => this.RaiseAndSetIfChanged(ref _viewModel, value);

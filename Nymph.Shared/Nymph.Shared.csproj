@@ -14,11 +14,4 @@
         <PackageReference Include="ReactiveUI" Version="20.1.1"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="CandidateItem\List\"/>
-        <Folder Include="CandidateItem\Path\"/>
-        <Folder Include="CandidateItem\Record\"/>
-        <Folder Include="CandidateItem\Unit\"/>
-    </ItemGroup>
-
 </Project>

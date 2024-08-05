@@ -10,7 +10,7 @@ public interface ICandidateItemContainerViewModel : IReactiveObject
     /// <summary>
     /// Inner view model to be rendered.
     /// </summary>
-    ICandidateItemViewModel? ViewModel { get; set; }
+    ICandidateItemViewModel<Model.Item>? ViewModel { get; set; }
 
     void SetItem(Model.Item item);
 }
