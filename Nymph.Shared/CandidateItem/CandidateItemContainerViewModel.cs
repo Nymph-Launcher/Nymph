@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using Autofac;
+using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem;
 
@@ -8,6 +9,8 @@ namespace Nymph.Shared.CandidateItem;
 public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemContainerViewModel
 {
     private ICandidateItemViewModel<Model.Item>? _viewModel;
+
+    private readonly IComponentContext _componentContext;
 
     /// <summary>
     /// Inner view model to be rendered.
@@ -24,7 +27,7 @@ public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemCon
     /// <param name="item">Item model to be rendered.</param>
     public void SetItem(Model.Item item)
     {
-        var candidateItemViewModel = new CandidateItemViewModelBuilder().Build(item);
+        var candidateItemViewModel = new CandidateItemViewModelBuilder(_componentContext).Build(item);
         ViewModel = candidateItemViewModel;
     }
 
@@ -32,8 +35,10 @@ public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemCon
     /// Construct by providing item model.
     /// </summary>
     /// <param name="item">Item model to be rendered.</param>
-    public CandidateItemContainerViewModel(Model.Item item)
+    /// <param name="componentContext">Container for resolving view models.</param>
+    public CandidateItemContainerViewModel(Model.Item item, IComponentContext componentContext)
     {
+        _componentContext = componentContext;
         SetItem(item);
     }
 }
