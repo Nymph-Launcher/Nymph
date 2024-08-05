@@ -11,5 +11,5 @@ public interface
     IFunctionCandidateViewModel<TParam, TResult> : ICandidateItemViewModel<Item.Function<TParam, TResult>>
     where TParam : Item where TResult : Item
 {
-    Model.Item.Function<TParam, TResult> Item { get; }
+    Item.Function<TParam, TResult> Item { get; }
 }
