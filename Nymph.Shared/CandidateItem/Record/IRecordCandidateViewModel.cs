@@ -7,5 +7,4 @@ namespace Nymph.Shared.CandidateItem.Record;
 /// </summary>
 public interface IRecordCandidateViewModel : ICandidateItemViewModel<Item.Record>
 {
-    
 }

@@ -3,18 +3,11 @@ using Nymph.Model;
 
 namespace Nymph.Shared.CandidateItem;
 
-/// <summary>
-/// Builder for building candidate item view models from corresponding items.
-/// </summary>
+/// <inheritdoc/>
 /// <param name="componentContext">Container for resolving candidate view models.</param>
 public class CandidateItemViewModelBuilder(IComponentContext componentContext) : ICandidateItemViewModelBuilder
 {
-    /// <summary>
-    /// Build candidate item view models from corresponding items.
-    /// </summary>
-    /// <param name="item">Item to be built from.</param>
-    /// <returns>Built candidate item view model.</returns>
-    /// <exception cref="InvalidOperationException">Fail to build the view model.</exception>
+    /// <inheritdoc/>
     public ICandidateItemViewModel<Item> Build(Item item)
     {
         var itemType = item.GetType();

@@ -3,14 +3,13 @@ using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem.List;
 
-/// <summary>
-/// Implementation of <see cref="IListCandidateViewModel{TItem}"/> for <see cref="Item.List{TItem}"/>.
-/// </summary>
+/// <inheritdoc cref="IListCandidateViewModel{TItem}"/>
 /// <param name="item">List item.</param>
-/// <typeparam name="TItem">Type of the list items.</typeparam>
 public class ListCandidateViewModel<TItem>(Item.List<TItem> item)
     : ReactiveObject, IListCandidateViewModel<TItem>
     where TItem : Item
 {
     public Item.List<TItem> Item { get; } = item;
+
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand { get; }
 }

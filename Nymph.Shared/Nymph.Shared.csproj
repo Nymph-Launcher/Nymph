@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac" Version="8.0.0" />
+        <PackageReference Include="Autofac" Version="8.0.0"/>
         <PackageReference Include="ReactiveUI" Version="20.1.1"/>
     </ItemGroup>
 
