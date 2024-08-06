@@ -7,7 +7,7 @@ namespace Nymph.Shared.CandidateItem;
 /// Builder for building candidate item view models from corresponding items.
 /// </summary>
 /// <param name="componentContext">Container for resolving candidate view models.</param>
-public class CandidateItemViewModelBuilder(IComponentContext componentContext)
+public class CandidateItemViewModelBuilder(IComponentContext componentContext) : ICandidateItemViewModelBuilder
 {
     /// <summary>
     /// Build candidate item view models from corresponding items.

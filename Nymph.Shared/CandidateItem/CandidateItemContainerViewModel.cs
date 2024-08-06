@@ -10,7 +10,7 @@ public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemCon
 {
     private ICandidateItemViewModel<Model.Item>? _viewModel;
 
-    private readonly IComponentContext _componentContext;
+    private readonly ICandidateItemViewModelBuilder _candidateItemViewModelBuilder;
 
     /// <summary>
     /// Inner view model to be rendered.
@@ -27,7 +27,7 @@ public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemCon
     /// <param name="item">Item model to be rendered.</param>
     public void SetItem(Model.Item item)
     {
-        var candidateItemViewModel = new CandidateItemViewModelBuilder(_componentContext).Build(item);
+        var candidateItemViewModel = _candidateItemViewModelBuilder.Build(item);
         ViewModel = candidateItemViewModel;
     }
 
@@ -35,10 +35,11 @@ public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemCon
     /// Construct by providing item model.
     /// </summary>
     /// <param name="item">Item model to be rendered.</param>
-    /// <param name="componentContext">Container for resolving view models.</param>
-    public CandidateItemContainerViewModel(Model.Item item, IComponentContext componentContext)
+    /// <param name="candidateItemViewModelBuilder">Candidate item view model builder.</param>
+    public CandidateItemContainerViewModel(Model.Item item, ICandidateItemViewModelBuilder candidateItemViewModelBuilder)
     {
-        _componentContext = componentContext;
+        _candidateItemViewModelBuilder = candidateItemViewModelBuilder;
+
         SetItem(item);
     }
 }
