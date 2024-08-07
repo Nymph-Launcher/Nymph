@@ -17,7 +17,7 @@ public class CandidateItemViewModelBuilderTests
     {
         var builder = new ContainerBuilder();
         
-        builder.RegisterNymph();
+        builder.RegisterNymphShared();
         
         _container = builder.Build();
     }

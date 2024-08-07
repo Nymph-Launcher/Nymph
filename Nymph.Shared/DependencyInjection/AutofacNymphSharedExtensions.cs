@@ -10,10 +10,11 @@ using Nymph.Shared.CandidateItem.Unit;
 
 namespace Nymph.Shared.DependencyInjection;
 
-public static class AutofacNymphExtensions
+public static class AutofacNymphSharedExtensions
 {
-    public static void RegisterNymph(this ContainerBuilder builder)
+    public static void RegisterNymphShared(this ContainerBuilder builder)
     {
+        // Register rendered candidate item view model
         builder.RegisterGeneric(typeof(AtomCandidateViewModel<>))
             .As(typeof(ICandidateItemViewModel<>))
             .WithParameter(
@@ -54,6 +55,11 @@ public static class AutofacNymphExtensions
                 (pi, _) => pi.ParameterType == typeof(Item.Unit),
                 (pi, _) => pi);
 
+        // register candidate item container view model
+        builder.RegisterType<CandidateItemContainerViewModel>()
+            .As<ICandidateItemContainerViewModel>();
+        
+        // register candidate item view model builder
         builder.RegisterType<CandidateItemViewModelBuilder>()
             .As<ICandidateItemViewModelBuilder>();
     }
