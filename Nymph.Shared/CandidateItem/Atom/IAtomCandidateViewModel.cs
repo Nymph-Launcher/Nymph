@@ -6,5 +6,4 @@
 /// <typeparam name="TValue">Type of the value inside atom item.</typeparam>
 public interface IAtomCandidateViewModel<TValue> : ICandidateItemViewModel<Model.Item.Atom<TValue>>
 {
-    Model.Item.Atom<TValue> Item { get; }
 }

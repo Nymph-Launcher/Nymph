@@ -1,30 +1,27 @@
-﻿using ReactiveUI;
+﻿using System.Reactive.Linq;
+using Autofac;
+using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem;
 
-/// <summary>
-/// Candidate view model which exposes the inner candidate view model to be rendered.
-/// </summary>
+/// <inheritdoc cref="ICandidateItemContainerViewModel"/>
 public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemContainerViewModel
 {
-    private ICandidateItemViewModel? _viewModel;
+    private ICandidateItemViewModel<Model.Item>? _viewModel;
 
-    /// <summary>
-    /// Inner view model to be rendered.
-    /// </summary>
-    public ICandidateItemViewModel? ViewModel
+    private readonly ICandidateItemViewModelBuilder _candidateItemViewModelBuilder;
+
+    /// <inheritdoc/>
+    public ICandidateItemViewModel<Model.Item>? ViewModel
     {
         get => _viewModel;
         set => this.RaiseAndSetIfChanged(ref _viewModel, value);
     }
 
-    /// <summary>
-    /// Set item to be rendered.
-    /// </summary>
-    /// <param name="item">Item model to be rendered.</param>
+    /// <inheritdoc/>
     public void SetItem(Model.Item item)
     {
-        var candidateItemViewModel = new CandidateItemViewModelBuilder().Build(item);
+        var candidateItemViewModel = _candidateItemViewModelBuilder.Build(item);
         ViewModel = candidateItemViewModel;
     }
 
@@ -32,8 +29,22 @@ public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemCon
     /// Construct by providing item model.
     /// </summary>
     /// <param name="item">Item model to be rendered.</param>
-    public CandidateItemContainerViewModel(Model.Item item)
+    /// <param name="candidateItemViewModelBuilder">Candidate item view model builder.</param>
+    public CandidateItemContainerViewModel(Model.Item item,
+        ICandidateItemViewModelBuilder candidateItemViewModelBuilder)
     {
+        _candidateItemViewModelBuilder = candidateItemViewModelBuilder;
+
+        // Bind inner ChooseCommand to outer ChooseCommand
+        this.WhenAnyValue(x => x.ViewModel)
+            .Where(vm => vm != null)
+            .Select(vm => vm!.ChooseCommand)
+            .Switch()
+            .InvokeCommand(ChooseCommand);
+
         SetItem(item);
     }
+
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand =>
+        ReactiveCommand.Create(() => { });
 }

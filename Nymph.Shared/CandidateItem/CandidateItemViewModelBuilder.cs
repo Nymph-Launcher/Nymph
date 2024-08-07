@@ -1,12 +1,18 @@
-﻿namespace Nymph.Shared.CandidateItem;
+﻿using Autofac;
+using Nymph.Model;
 
-/// <summary>
-/// Build candidate item view model from item model.
-/// </summary>
-public class CandidateItemViewModelBuilder
+namespace Nymph.Shared.CandidateItem;
+
+/// <inheritdoc/>
+/// <param name="componentContext">Container for resolving candidate view models.</param>
+public class CandidateItemViewModelBuilder(IComponentContext componentContext) : ICandidateItemViewModelBuilder
 {
-    public ICandidateItemViewModel Build(Model.Item item)
+    /// <inheritdoc/>
+    public ICandidateItemViewModel<Item> Build(Item item)
     {
-        throw new NotImplementedException();
+        var itemType = item.GetType();
+        var viewModelType = typeof(ICandidateItemViewModel<>).MakeGenericType(itemType);
+        var viewModel = componentContext.Resolve(viewModelType, new TypedParameter(itemType, item));
+        return viewModel as ICandidateItemViewModel<Item> ?? throw new InvalidOperationException();
     }
 }

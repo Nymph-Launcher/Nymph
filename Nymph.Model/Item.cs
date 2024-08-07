@@ -47,6 +47,6 @@ public abstract record Item
     /// <param name="Decorator">Decorator item.</param>
     /// <typeparam name="TDecorator">Type of the decorator.</typeparam>
     /// <typeparam name="TValue">Type of the decorated value.</typeparam>
-    public record Path<TDecorator, TValue>(TValue Value, TDecorator Decorator)
+    public record Path<TDecorator, TValue>(TDecorator Decorator, TValue Value)
         : Item where TDecorator : Item where TValue : Item;
 }
