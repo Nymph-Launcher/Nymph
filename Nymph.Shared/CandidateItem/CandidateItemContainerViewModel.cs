@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.Reactive.Linq;
+using Autofac;
 using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem;
@@ -34,8 +35,16 @@ public class CandidateItemContainerViewModel : ReactiveObject, ICandidateItemCon
     {
         _candidateItemViewModelBuilder = candidateItemViewModelBuilder;
 
+        // Bind inner ChooseCommand to outer ChooseCommand
+        this.WhenAnyValue(x => x.ViewModel)
+            .Where(vm => vm != null)
+            .Select(vm => vm!.ChooseCommand)
+            .Switch()
+            .InvokeCommand(ChooseCommand);
+
         SetItem(item);
     }
 
-    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand { get; }
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand =>
+        ReactiveCommand.Create(() => { });
 }
