@@ -6,7 +6,7 @@ namespace Nymph.Shared.CandidateItem;
 /// <summary>
 /// Base for both rendered and container candidate view models.
 /// </summary>
-public interface ICandidateItemViewModel
+public interface ICandidateItemViewModel : IReactiveObject
 {
     /// <summary>
     /// Command for choosing the candidate item.

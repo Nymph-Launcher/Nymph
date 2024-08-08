@@ -5,7 +5,7 @@ namespace Nymph.Shared.CandidateItem;
 /// <summary>
 /// Candidate view model which exposes the inner candidate view model to be rendered.
 /// </summary>
-public interface ICandidateItemContainerViewModel : IReactiveObject, ICandidateItemViewModel
+public interface ICandidateItemContainerViewModel : ICandidateItemViewModel
 {
     /// <summary>
     /// Inner view model to be rendered.
