@@ -9,5 +9,6 @@ public class RecordCandidateViewModel(Item.Record item) : ReactiveObject, IRecor
 {
     public Item.Record Item { get; } = item;
 
-    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand { get; }
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand =>
+        ReactiveCommand.Create(() => { });
 }

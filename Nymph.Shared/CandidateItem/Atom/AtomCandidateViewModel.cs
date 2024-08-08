@@ -9,5 +9,6 @@ public class AtomCandidateViewModel<TValue>(Item.Atom<TValue> item) : ReactiveOb
 {
     public Item.Atom<TValue> Item { get; } = item;
 
-    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand { get; }
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand =>
+        ReactiveCommand.Create(() => { });
 }

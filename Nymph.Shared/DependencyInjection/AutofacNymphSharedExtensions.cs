@@ -42,7 +42,7 @@ public static class AutofacNymphSharedExtensions
                 (pi, _) => pi.ParameterType.IsGenericType &&
                            pi.ParameterType.GetGenericTypeDefinition() == typeof(Item.Path<,>),
                 (pi, _) => pi);
-        
+
         builder.RegisterType(typeof(RecordCandidateViewModel))
             .As(typeof(ICandidateItemViewModel<Item.Record>))
             .WithParameter(
@@ -58,7 +58,7 @@ public static class AutofacNymphSharedExtensions
         // register candidate item container view model
         builder.RegisterType<CandidateItemContainerViewModel>()
             .As<ICandidateItemContainerViewModel>();
-        
+
         // register candidate item view model builder
         builder.RegisterType<CandidateItemViewModelBuilder>()
             .As<ICandidateItemViewModelBuilder>();

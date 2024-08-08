@@ -12,5 +12,6 @@ public class PathCandidateViewModel<TDecorator, TValue>(Item.Path<TDecorator, TV
 {
     public Item.Path<TDecorator, TValue> Item { get; } = item;
 
-    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand { get; }
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand =>
+        ReactiveCommand.Create(() => { });
 }

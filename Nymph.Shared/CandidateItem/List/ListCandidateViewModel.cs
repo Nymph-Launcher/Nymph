@@ -11,5 +11,6 @@ public class ListCandidateViewModel<TItem>(Item.List<TItem> item)
 {
     public Item.List<TItem> Item { get; } = item;
 
-    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand { get; }
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand => ReactiveCommand.Create(
+        () => { });
 }

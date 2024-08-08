@@ -9,5 +9,6 @@ public class UnitCandidateViewModel(Item.Unit item) : ReactiveObject, IUnitCandi
 {
     public Item.Unit Item { get; } = item;
 
-    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand { get; }
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand =>
+        ReactiveCommand.Create(() => { });
 }

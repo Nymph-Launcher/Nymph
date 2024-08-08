@@ -12,5 +12,6 @@ public class FunctionCandidateViewModel<TParam, TResult>(Item.Function<TParam, T
 {
     public Item.Function<TParam, TResult> Item { get; } = item;
 
-    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand { get; }
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ChooseCommand =>
+        ReactiveCommand.Create(() => { });
 }
