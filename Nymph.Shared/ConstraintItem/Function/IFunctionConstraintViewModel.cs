@@ -11,5 +11,4 @@ public interface
     IFunctionConstraintViewModel<TParam, TResult> : IConstraintItemViewModel<Item.Function<TParam, TResult>>
     where TParam : Item where TResult : Item
 {
-    
 }

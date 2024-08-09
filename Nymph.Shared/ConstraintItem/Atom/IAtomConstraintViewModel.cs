@@ -8,5 +8,4 @@ namespace Nymph.Shared.ConstraintItem.Atom;
 /// <typeparam name="TValue">Type of the atom item value.</typeparam>
 public interface IAtomConstraintViewModel<TValue> : IConstraintItemViewModel<Item.Atom<TValue>>
 {
-    
 }

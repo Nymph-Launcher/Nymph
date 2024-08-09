@@ -9,6 +9,6 @@ namespace Nymph.Shared.ConstraintItem.Atom;
 public class AtomConstraintViewModel<TValue>(Item.Atom<TValue> item) : ReactiveObject, IAtomConstraintViewModel<TValue>
 {
     public ReactiveCommand<Unit, Unit> ClearCommand => ReactiveCommand.Create(() => { });
-    
+
     public Item.Atom<TValue> Item { get; } = item;
 }

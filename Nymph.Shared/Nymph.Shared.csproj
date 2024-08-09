@@ -16,10 +16,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="ConstraintItem\List\" />
-      <Folder Include="ConstraintItem\Path\" />
-      <Folder Include="ConstraintItem\Record\" />
-      <Folder Include="ConstraintItem\Unit\" />
+        <Folder Include="ConstraintItem\Path\"/>
+        <Folder Include="ConstraintItem\Record\"/>
+        <Folder Include="ConstraintItem\Unit\"/>
     </ItemGroup>
 
 </Project>
