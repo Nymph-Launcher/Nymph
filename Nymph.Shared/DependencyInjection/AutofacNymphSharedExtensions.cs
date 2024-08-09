@@ -55,10 +55,6 @@ public static class AutofacNymphSharedExtensions
                 (pi, _) => pi.ParameterType == typeof(Item.Unit),
                 (pi, _) => pi);
 
-        // register candidate item container view model
-        builder.RegisterType<CandidateItemContainerViewModel>()
-            .As<ICandidateItemContainerViewModel>();
-
         // register candidate item view model builder
         builder.RegisterType<CandidateItemViewModelBuilder>()
             .As<ICandidateItemViewModelBuilder>();

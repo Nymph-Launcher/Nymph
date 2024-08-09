@@ -15,4 +15,11 @@
         <PackageReference Include="ReactiveUI" Version="20.1.1"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ConstraintItem\List\" />
+      <Folder Include="ConstraintItem\Path\" />
+      <Folder Include="ConstraintItem\Record\" />
+      <Folder Include="ConstraintItem\Unit\" />
+    </ItemGroup>
+
 </Project>
