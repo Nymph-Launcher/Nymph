@@ -11,7 +11,8 @@ public class FunctionConstraintViewModel<TParam, TResult>(Item.Function<TParam, 
     where TParam : Item
     where TResult : Item
 {
-    public ReactiveCommand<Unit, Unit> ClearCommand => ReactiveCommand.Create(() => { });
+    public ReactiveCommand<System.Reactive.Unit, System.Reactive.Unit> ClearCommand =>
+        ReactiveCommand.Create(() => { });
 
     public Item.Function<TParam, TResult> Item { get; } = item;
 }

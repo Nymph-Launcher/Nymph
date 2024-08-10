@@ -1,6 +1,4 @@
-﻿using System.Reactive;
-using Nymph.Model;
-using ReactiveUI;
+﻿using Nymph.Model;
 
 namespace Nymph.Shared.ConstraintItem.List;
 
@@ -10,14 +8,4 @@ namespace Nymph.Shared.ConstraintItem.List;
 /// <typeparam name="TItem">Type of the item in the list.</typeparam>
 public interface IListConstraintViewModel<TItem> : IConstraintItemViewModel<Item.List<TItem>> where TItem : Item
 {
-}
-
-/// <inheritdoc cref="IListConstraintViewModel{TItem}"/>
-/// <typeparam name="TItem"></typeparam>
-public class ListConstraintViewModel<TItem>(Item.List<TItem> item) : ReactiveObject, IListConstraintViewModel<TItem>
-    where TItem : Item
-{
-    public Item.List<TItem> Item { get; } = item;
-
-    public ReactiveCommand<Unit, Unit> ClearCommand => ReactiveCommand.Create(() => { });
 }
