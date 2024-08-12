@@ -5,7 +5,6 @@ using Nymph.Shared.CandidateItem.List;
 using Nymph.Shared.CandidateItem.Path;
 using Nymph.Shared.CandidateItem.Record;
 using Nymph.Shared.CandidateItem.Unit;
-using Nymph.Shared.DependencyInjection;
 
 namespace Nymph.Shared.Test;
 
