@@ -5,3 +5,4 @@ global using Moq;
 global using Autofac;
 global using LanguageExt;
 global using static LanguageExt.Prelude;
+global using Nymph.Shared.DependencyInjection;
