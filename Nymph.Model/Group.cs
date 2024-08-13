@@ -26,6 +26,15 @@ public abstract record Group
     public record RecordUnfold(Item.Record Record) : Group;
 
     /// <summary>
+    ///     Group for unfolding a path item.
+    /// </summary>
+    /// <param name="Path">Path item to be unfolded.</param>
+    /// <typeparam name="TDecorator">Type of the decorator item.</typeparam>
+    /// <typeparam name="TValue">Type of the value item.</typeparam>
+    public record PathUnfold<TDecorator, TValue>(Item.Path<TDecorator, TValue> Path)
+        : Group where TDecorator : Item where TValue : Item;
+
+    /// <summary>
     /// Group for statically execute a function over an item.
     /// </summary>
     /// <param name="Func">Function item to be executed.</param>
