@@ -20,8 +20,8 @@ public class ItemPreviewViewModel<TItem> : ReactiveObject, IItemPreviewViewModel
     /// <param name="itemPreviewViewModelBuilder">Builder for item preview view model.</param>
     /// <param name="candidateItemViewModelBuilder">Builder for candidate item view model.</param>
     /// <param name="group">Item preview group.</param>
-    public ItemPreviewViewModel(RenderedPreview.ItemPreviewViewModelBuilder itemPreviewViewModelBuilder,
-        CandidateItemViewModelBuilder candidateItemViewModelBuilder, Model.Group.ItemPreview<TItem> group)
+    public ItemPreviewViewModel(RenderedPreview.IItemPreviewViewModelBuilder itemPreviewViewModelBuilder,
+        ICandidateItemViewModelBuilder candidateItemViewModelBuilder, Model.Group.ItemPreview<TItem> group)
     {
         Group = group;
 

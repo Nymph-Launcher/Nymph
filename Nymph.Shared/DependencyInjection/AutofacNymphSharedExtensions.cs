@@ -14,6 +14,9 @@ using Nymph.Shared.ConstraintItem.List;
 using Nymph.Shared.ConstraintItem.Path;
 using Nymph.Shared.ConstraintItem.Record;
 using Nymph.Shared.ConstraintItem.Unit;
+using Nymph.Shared.Group;
+using Nymph.Shared.Group.ItemPreview;
+using Nymph.Shared.Group.ListUnfold;
 using Nymph.Shared.ItemPreview;
 using Nymph.Shared.ItemPreview.Atom;
 using Nymph.Shared.ItemPreview.Function;
@@ -126,41 +129,41 @@ public static class AutofacNymphSharedExtensions
     {
         // register item preview view model
         builder.RegisterGeneric(typeof(AtomPreviewViewModel<>))
-            .As(typeof(IItemPreviewViewModel<>))
+            .As(typeof(ItemPreview.IItemPreviewViewModel<>))
             .WithParameter(
                 (pi, _) => pi.ParameterType.IsGenericType &&
                            pi.ParameterType.GetGenericTypeDefinition() == typeof(Item.Atom<>),
                 (pi, _) => pi);
 
         builder.RegisterGeneric(typeof(FunctionPreviewViewModel<,>))
-            .As(typeof(IItemPreviewViewModel<>))
+            .As(typeof(ItemPreview.IItemPreviewViewModel<>))
             .WithParameter(
                 (pi, _) => pi.ParameterType.IsGenericType &&
                            pi.ParameterType.GetGenericTypeDefinition() == typeof(Item.Function<,>),
                 (pi, _) => pi);
 
         builder.RegisterGeneric(typeof(ListPreviewViewModel<>))
-            .As(typeof(IItemPreviewViewModel<>))
+            .As(typeof(ItemPreview.IItemPreviewViewModel<>))
             .WithParameter(
                 (pi, _) => pi.ParameterType.IsGenericType &&
                            pi.ParameterType.GetGenericTypeDefinition() == typeof(Item.List<>),
                 (pi, _) => pi);
 
         builder.RegisterGeneric(typeof(PathPreviewViewModel<,>))
-            .As(typeof(IItemPreviewViewModel<>))
+            .As(typeof(ItemPreview.IItemPreviewViewModel<>))
             .WithParameter(
                 (pi, _) => pi.ParameterType.IsGenericType &&
                            pi.ParameterType.GetGenericTypeDefinition() == typeof(Item.Path<,>),
                 (pi, _) => pi);
 
         builder.RegisterType(typeof(RecordPreviewViewModel))
-            .As(typeof(IItemPreviewViewModel<Item.Record>))
+            .As(typeof(ItemPreview.IItemPreviewViewModel<Item.Record>))
             .WithParameter(
                 (pi, _) => pi.ParameterType == typeof(Item.Record),
                 (pi, _) => pi);
 
         builder.RegisterType(typeof(UnitPreviewViewModel))
-            .As(typeof(IItemPreviewViewModel<Item.Unit>))
+            .As(typeof(ItemPreview.IItemPreviewViewModel<Item.Unit>))
             .WithParameter(
                 (pi, _) => pi.ParameterType == typeof(Item.Unit),
                 (pi, _) => pi);
@@ -170,6 +173,23 @@ public static class AutofacNymphSharedExtensions
             .As<IItemPreviewViewModelBuilder>();
     }
 
+    private static void RegisterGroupViewModel(ContainerBuilder builder)
+    {
+        builder.RegisterGeneric(typeof(ItemPreviewViewModel<>))
+            .As(typeof(IGroupViewModel<>))
+            .WithParameter(
+                (pi, _) => pi.ParameterType.IsGenericType &&
+                           pi.ParameterType.GetGenericTypeDefinition() == typeof(Model.Group.ItemPreview<>),
+                (pi, _) => pi);
+
+        builder.RegisterGeneric(typeof(ListUnfoldViewModel<>))
+            .As(typeof(IGroupViewModel<>))
+            .WithParameter(
+                (pi, _) => pi.ParameterType.IsGenericType &&
+                           pi.ParameterType.GetGenericTypeDefinition() == typeof(Model.Group.ListUnfold<>),
+                (pi, _) => pi);
+    }
+
     public static void RegisterNymphShared(this ContainerBuilder builder)
     {
         RegisterCandidateItemViewModel(builder);
@@ -177,5 +197,7 @@ public static class AutofacNymphSharedExtensions
         RegisterConstraintItemViewModel(builder);
 
         RegisterItemPreviewViewModel(builder);
+
+        RegisterGroupViewModel(builder);
     }
 }

@@ -19,7 +19,7 @@ public class ListUnfoldViewModel<TItem> : ReactiveObject, IListUnfoldViewModel<T
     /// </summary>
     /// <param name="candidateItemViewModelBuilder">Candidate item view model builder.</param>
     /// <param name="group">List unfold group.</param>
-    public ListUnfoldViewModel(CandidateItemViewModelBuilder candidateItemViewModelBuilder, Model.Group.ListUnfold<TItem> group)
+    public ListUnfoldViewModel(ICandidateItemViewModelBuilder candidateItemViewModelBuilder, Model.Group.ListUnfold<TItem> group)
     {
         Group = group;
 
