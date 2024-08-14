@@ -3,11 +3,11 @@ using Nymph.Model;
 
 namespace Nymph.Shared.CandidateItem;
 
-/// <inheritdoc/>
+/// <inheritdoc />
 /// <param name="componentContext">Container for resolving candidate view models.</param>
 public class CandidateItemViewModelBuilder(IComponentContext componentContext) : ICandidateItemViewModelBuilder
 {
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public ICandidateItemViewModel<Item> Build(Item item)
     {
         var itemType = item.GetType();

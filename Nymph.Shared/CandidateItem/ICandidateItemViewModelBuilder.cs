@@ -3,12 +3,12 @@
 namespace Nymph.Shared.CandidateItem;
 
 /// <summary>
-/// Builder for building candidate item view models.
+///     Builder for building candidate item view models.
 /// </summary>
 public interface ICandidateItemViewModelBuilder
 {
     /// <summary>
-    /// Build candidate item view models from corresponding items.
+    ///     Build candidate item view models from corresponding items.
     /// </summary>
     /// <param name="item">Item to be built from.</param>
     /// <returns>Built candidate item view model.</returns>

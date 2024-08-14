@@ -1,9 +1,11 @@
-﻿namespace Nymph.Shared.CandidateItem.Atom;
+﻿using Nymph.Model;
+
+namespace Nymph.Shared.CandidateItem.Atom;
 
 /// <summary>
-/// Default candidate view model for atom item.
+///     Default candidate view model for atom item.
 /// </summary>
 /// <typeparam name="TValue">Type of the value inside atom item.</typeparam>
-public interface IAtomCandidateViewModel<TValue> : ICandidateItemViewModel<Model.Item.Atom<TValue>>
+public interface IAtomCandidateViewModel<TValue> : ICandidateItemViewModel<Item.Atom<TValue>>
 {
 }

@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.ConstraintItem.Record;
 
-/// <inheritdoc cref="IRecordConstraintViewModel"/>
+/// <inheritdoc cref="IRecordConstraintViewModel" />
 /// <param name="item">Record item.</param>
 public class RecordConstraintViewModel(Item.Record item) : ReactiveObject, IRecordConstraintViewModel
 {

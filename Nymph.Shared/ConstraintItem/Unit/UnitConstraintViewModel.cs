@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.ConstraintItem.Unit;
 
-/// <inheritdoc cref="IUnitConstraintViewModel"/>
+/// <inheritdoc cref="IUnitConstraintViewModel" />
 /// <param name="item">Unit item.</param>
 public class UnitConstraintViewModel(Item.Unit item) : ReactiveObject, IUnitConstraintViewModel
 {

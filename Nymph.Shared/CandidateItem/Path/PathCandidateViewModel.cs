@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem.Path;
 
-/// <inheritdoc cref="IPathCandidateViewModel{TDecorator,TValue}"/>
+/// <inheritdoc cref="IPathCandidateViewModel{TDecorator,TValue}" />
 /// <param name="item">Path item.</param>
 public class PathCandidateViewModel<TDecorator, TValue>(Item.Path<TDecorator, TValue> item)
     : ReactiveObject, IPathCandidateViewModel<TDecorator, TValue>

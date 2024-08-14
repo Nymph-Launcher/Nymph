@@ -1,10 +1,9 @@
-﻿using System.Reactive;
-using Nymph.Model;
+﻿using Nymph.Model;
 using ReactiveUI;
 
 namespace Nymph.Shared.ConstraintItem.Function;
 
-/// <inheritdoc cref="IFunctionConstraintViewModel{TParam,TResult}"/>
+/// <inheritdoc cref="IFunctionConstraintViewModel{TParam,TResult}" />
 /// <param name="item">Function item.</param>
 public class FunctionConstraintViewModel<TParam, TResult>(Item.Function<TParam, TResult> item)
     : ReactiveObject, IFunctionConstraintViewModel<TParam, TResult>

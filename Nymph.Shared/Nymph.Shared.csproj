@@ -15,4 +15,12 @@
         <PackageReference Include="ReactiveUI" Version="20.1.1"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="Group\BinaryExecution\"/>
+        <Folder Include="Group\DynamicExecution\"/>
+        <Folder Include="Group\PathUnfold\"/>
+        <Folder Include="Group\RecordUnfold\"/>
+        <Folder Include="Group\StaticExecution\"/>
+    </ItemGroup>
+
 </Project>

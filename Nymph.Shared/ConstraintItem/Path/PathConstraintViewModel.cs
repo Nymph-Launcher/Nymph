@@ -1,10 +1,9 @@
-﻿using System.Reactive;
-using Nymph.Model;
+﻿using Nymph.Model;
 using ReactiveUI;
 
 namespace Nymph.Shared.ConstraintItem.Path;
 
-/// <inheritdoc cref="IPathConstraintViewModel{TDecorator,TValue}"/>
+/// <inheritdoc cref="IPathConstraintViewModel{TDecorator,TValue}" />
 /// <param name="item">Path item.</param>
 public class PathConstraintViewModel<TDecorator, TValue>(Item.Path<TDecorator, TValue> item)
     : ReactiveObject, IPathConstraintViewModel<TDecorator, TValue>
