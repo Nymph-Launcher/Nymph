@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem.Function;
 
-/// <inheritdoc cref="IFunctionCandidateViewModel{TParam,TResult}"/>
+/// <inheritdoc cref="IFunctionCandidateViewModel{TParam,TResult}" />
 /// <param name="item">Function item.</param>
 public class FunctionCandidateViewModel<TParam, TResult>(Item.Function<TParam, TResult> item)
     : ReactiveObject, IFunctionCandidateViewModel<TParam, TResult>

@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem.Record;
 
-/// <inheritdoc cref="IRecordCandidateViewModel"/>
+/// <inheritdoc cref="IRecordCandidateViewModel" />
 /// <param name="item">Record item.</param>
 public class RecordCandidateViewModel(Item.Record item) : ReactiveObject, IRecordCandidateViewModel
 {

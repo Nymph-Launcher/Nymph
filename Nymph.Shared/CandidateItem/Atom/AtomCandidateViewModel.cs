@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem.Atom;
 
-/// <inheritdoc cref="IAtomCandidateViewModel{TValue}"/>
+/// <inheritdoc cref="IAtomCandidateViewModel{TValue}" />
 /// <param name="item">Atom item.</param>
 public class AtomCandidateViewModel<TValue>(Item.Atom<TValue> item) : ReactiveObject, IAtomCandidateViewModel<TValue>
 {

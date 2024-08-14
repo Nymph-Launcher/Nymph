@@ -1,8 +1,4 @@
-﻿using Nymph.Shared.CandidateItem;
-using Nymph.Shared.CandidateItem.Atom;
-using Nymph.Shared.DependencyInjection;
-
-namespace Nymph.Shared.Test;
+﻿namespace Nymph.Shared.Test;
 
 public class DependencyInjectionTests
 {

@@ -3,7 +3,7 @@
 namespace Nymph.Shared.CandidateItem.Function;
 
 /// <summary>
-/// Default candidate view model for function item.
+///     Default candidate view model for function item.
 /// </summary>
 /// <typeparam name="TParam">Type of the param item.</typeparam>
 /// <typeparam name="TResult">Type of the result item.</typeparam>

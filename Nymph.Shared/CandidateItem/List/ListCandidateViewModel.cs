@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.CandidateItem.List;
 
-/// <inheritdoc cref="IListCandidateViewModel{TItem}"/>
+/// <inheritdoc cref="IListCandidateViewModel{TItem}" />
 /// <param name="item">List item.</param>
 public class ListCandidateViewModel<TItem>(Item.List<TItem> item)
     : ReactiveObject, IListCandidateViewModel<TItem>

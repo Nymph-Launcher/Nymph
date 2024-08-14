@@ -18,7 +18,6 @@
     <ItemGroup>
         <Folder Include="Group\BinaryExecution\"/>
         <Folder Include="Group\DynamicExecution\"/>
-        <Folder Include="Group\ItemPreview\"/>
         <Folder Include="Group\PathUnfold\"/>
         <Folder Include="Group\RecordUnfold\"/>
         <Folder Include="Group\StaticExecution\"/>

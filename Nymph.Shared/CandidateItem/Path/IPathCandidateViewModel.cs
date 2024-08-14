@@ -3,7 +3,7 @@
 namespace Nymph.Shared.CandidateItem.Path;
 
 /// <summary>
-/// Default candidate view model for path item.
+///     Default candidate view model for path item.
 /// </summary>
 /// <typeparam name="TDecorator">Type of decorator of path item.</typeparam>
 /// <typeparam name="TValue">Type of value of path item.</typeparam>

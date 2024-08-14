@@ -1,37 +1,37 @@
 ﻿namespace Nymph.Model;
 
 /// <summary>
-/// Represents an item in the Nymph launcher.
+///     Represents an item in the Nymph launcher.
 /// </summary>
 public abstract record Item
 {
     /// <summary>
-    /// Item wrapper around a value.
+    ///     Item wrapper around a value.
     /// </summary>
     /// <param name="Value">Wrapped value.</param>
     /// <typeparam name="TValue">Type of the wrapped value.</typeparam>
     public record Atom<TValue>(TValue Value) : Item;
 
     /// <summary>
-    /// Item of a list of items.
+    ///     Item of a list of items.
     /// </summary>
     /// <param name="Items">Items.</param>
     /// <typeparam name="TItem">Type of the items.</typeparam>
     public record List<TItem>(Seq<TItem> Items) : Item where TItem : Item;
 
     /// <summary>
-    /// Unit item.
+    ///     Unit item.
     /// </summary>
     public record Unit : Item;
 
     /// <summary>
-    /// Tagged tuple of items.
+    ///     Tagged tuple of items.
     /// </summary>
     /// <param name="Fields">Tagged items.</param>
     public record Record(Map<string, Item> Fields) : Item;
 
     /// <summary>
-    /// Item of a function over an item.
+    ///     Item of a function over an item.
     /// </summary>
     /// <param name="Name">Name of the function item.</param>
     /// <param name="Func">Inner function over a param item.</param>
@@ -41,7 +41,7 @@ public abstract record Item
         : Item where TParam : Item where TResult : Item;
 
     /// <summary>
-    /// Item of a decorated item.
+    ///     Item of a decorated item.
     /// </summary>
     /// <param name="Value">Decorated item.</param>
     /// <param name="Decorator">Decorator item.</param>

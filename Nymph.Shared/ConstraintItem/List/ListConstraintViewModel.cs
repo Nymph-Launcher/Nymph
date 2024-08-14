@@ -1,10 +1,9 @@
-﻿using System.Reactive;
-using Nymph.Model;
+﻿using Nymph.Model;
 using ReactiveUI;
 
 namespace Nymph.Shared.ConstraintItem.List;
 
-/// <inheritdoc cref="IListConstraintViewModel{TItem}"/>
+/// <inheritdoc cref="IListConstraintViewModel{TItem}" />
 /// <param name="item">List item.</param>
 public class ListConstraintViewModel<TItem>(Item.List<TItem> item) : ReactiveObject, IListConstraintViewModel<TItem>
     where TItem : Item
