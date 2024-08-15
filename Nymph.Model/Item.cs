@@ -37,7 +37,7 @@ public abstract record Item
     /// <param name="Func">Inner function over a param item.</param>
     /// <typeparam name="TParam">Type of the parameter.</typeparam>
     /// <typeparam name="TResult">Type of the result.</typeparam>
-    public record Function<TParam, TResult>(string Name, Func<TParam, TResult> Func)
+    public record Function<TParam, TResult>(string Name, Func<TParam, Task<Seq<TResult>>> Func)
         : Item where TParam : Item where TResult : Item;
 
     /// <summary>
