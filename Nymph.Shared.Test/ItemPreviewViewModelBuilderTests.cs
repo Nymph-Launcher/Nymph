@@ -55,7 +55,7 @@ public class ItemPreviewViewModelBuilderTests
     {
         var builder = _container.Resolve<IItemPreviewViewModelBuilder>();
         var item = new Item.Function<Item.Atom<int>, Item.Atom<string>>("Display integer",
-            number => new Item.Atom<string>($"Number is {number}"));
+            number => Task.FromResult(Seq([new Item.Atom<string>($"Number is {number}")])));
         var viewModel = builder.Build(item);
 
         Assert.Multiple(() =>
