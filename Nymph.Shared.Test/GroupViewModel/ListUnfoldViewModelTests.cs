@@ -27,6 +27,7 @@ public class ListUnfoldViewModelTests
             _container.Resolve<IGroupViewModel<Model.Group.ListUnfold<Item.Atom<int>>>>(
                 new TypedParameter(typeof(Model.Group.ListUnfold<Item.Atom<int>>), listUnfoldGroup));
 
-        Assert.Equal(listUnfoldViewModel.CandidateItemViewModels.Select(vm => vm.Item), listItem.Items);
+        listUnfoldViewModel.CandidateItemViewModels.Select(vm => vm.Item)
+            .Should().Equal(listItem.Items);
     }
 }
