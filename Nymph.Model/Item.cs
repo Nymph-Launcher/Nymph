@@ -34,10 +34,15 @@ public abstract record Item
     ///     Item of a function over an item.
     /// </summary>
     /// <param name="Name">Name of the function item.</param>
-    /// <param name="Func">Inner function over a param item.</param>
+    /// <param name="Execution">Execution function over a param item.</param>
+    /// <param name="Validation">Validation predicate.</param>
     /// <typeparam name="TParam">Type of the parameter.</typeparam>
     /// <typeparam name="TResult">Type of the result.</typeparam>
-    public record Function<TParam, TResult>(string Name, Func<TParam, Task<Seq<TResult>>> Func)
+    public record Function<TParam, TResult>(
+        string Name,
+        Func<TParam, Task<Seq<TResult>>> Execution,
+        Option<Predicate<TParam>> Validation = default,
+        bool ShouldManual = false)
         : Item where TParam : Item where TResult : Item;
 
     /// <summary>
