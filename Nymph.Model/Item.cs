@@ -36,6 +36,7 @@ public abstract record Item
     /// <param name="Name">Name of the function item.</param>
     /// <param name="Execution">Execution function over a param item.</param>
     /// <param name="Validation">Validation predicate.</param>
+    /// <param name="ShouldManual">Should the execution be manually triggered.</param>
     /// <typeparam name="TParam">Type of the parameter.</typeparam>
     /// <typeparam name="TResult">Type of the result.</typeparam>
     public record Function<TParam, TResult>(
