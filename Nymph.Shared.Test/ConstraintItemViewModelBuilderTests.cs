@@ -28,11 +28,8 @@ public class ConstraintItemViewModelBuilderTests
         var item = new Item.Atom<int>(10);
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<AtomConstraintViewModel<int>>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<AtomConstraintViewModel<int>>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -43,11 +40,8 @@ public class ConstraintItemViewModelBuilderTests
             new Item.Atom<int>(2), new Item.Atom<int>(3)));
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<ListConstraintViewModel<Item.Atom<int>>>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<ListConstraintViewModel<Item.Atom<int>>>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -58,11 +52,8 @@ public class ConstraintItemViewModelBuilderTests
             number => Task.FromResult(Seq([new Item.Atom<string>($"Number is {number}")])));
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<FunctionConstraintViewModel<Item.Atom<int>, Item.Atom<string>>>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<FunctionConstraintViewModel<Item.Atom<int>, Item.Atom<string>>>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -73,11 +64,8 @@ public class ConstraintItemViewModelBuilderTests
             new Item.Atom<string>("10"));
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<PathConstraintViewModel<Item.Atom<int>, Item.Atom<string>>>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<PathConstraintViewModel<Item.Atom<int>, Item.Atom<string>>>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -88,11 +76,8 @@ public class ConstraintItemViewModelBuilderTests
             ("age", new Item.Atom<int>(30))));
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<RecordConstraintViewModel>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<RecordConstraintViewModel>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -102,10 +87,7 @@ public class ConstraintItemViewModelBuilderTests
         var item = new Item.Unit();
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<UnitConstraintViewModel>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<UnitConstraintViewModel>();
+        viewModel.Item.Should().Be(item);
     }
 }

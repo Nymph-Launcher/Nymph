@@ -28,11 +28,8 @@ public class ItemPreviewViewModelBuilderTests
         var item = new Item.Atom<int>(10);
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<AtomPreviewViewModel<int>>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<AtomPreviewViewModel<int>>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -43,11 +40,8 @@ public class ItemPreviewViewModelBuilderTests
             new Item.Atom<int>(2), new Item.Atom<int>(3)));
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<ListPreviewViewModel<Item.Atom<int>>>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<ListPreviewViewModel<Item.Atom<int>>>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -58,11 +52,8 @@ public class ItemPreviewViewModelBuilderTests
             number => Task.FromResult(Seq([new Item.Atom<string>($"Number is {number}")])));
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<FunctionPreviewViewModel<Item.Atom<int>, Item.Atom<string>>>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<FunctionPreviewViewModel<Item.Atom<int>, Item.Atom<string>>>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -73,11 +64,8 @@ public class ItemPreviewViewModelBuilderTests
             new Item.Atom<string>("10"));
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<PathPreviewViewModel<Item.Atom<int>, Item.Atom<string>>>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<PathPreviewViewModel<Item.Atom<int>, Item.Atom<string>>>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -88,11 +76,8 @@ public class ItemPreviewViewModelBuilderTests
             ("age", new Item.Atom<int>(30))));
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<RecordPreviewViewModel>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<RecordPreviewViewModel>();
+        viewModel.Item.Should().Be(item);
     }
 
     [Fact]
@@ -102,10 +87,7 @@ public class ItemPreviewViewModelBuilderTests
         var item = new Item.Unit();
         var viewModel = builder.Build(item);
 
-        Assert.Multiple(() =>
-        {
-            Assert.IsType<UnitPreviewViewModel>(viewModel);
-            Assert.Equal(viewModel.Item, item);
-        });
+        viewModel.Should().BeOfType<UnitPreviewViewModel>();
+        viewModel.Item.Should().Be(item);
     }
 }

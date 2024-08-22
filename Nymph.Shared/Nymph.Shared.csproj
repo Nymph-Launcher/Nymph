@@ -17,10 +17,9 @@
 
     <ItemGroup>
         <Folder Include="Group\BinaryExecution\"/>
-        <Folder Include="Group\DynamicExecution\"/>
         <Folder Include="Group\PathUnfold\"/>
         <Folder Include="Group\RecordUnfold\"/>
-        <Folder Include="Group\StaticExecution\"/>
+        <Folder Include="Group\UnaryExecution\"/>
     </ItemGroup>
 
 </Project>

@@ -35,32 +35,25 @@ public abstract record Group
         : Group where TDecorator : Item where TValue : Item;
 
     /// <summary>
-    ///     Group for statically execute a function over an item.
+    /// Group for executing a unary function item over a param item.
     /// </summary>
-    /// <param name="Func">Function item to be executed.</param>
-    /// <param name="Item">Param item to be executed over.</param>
-    /// <typeparam name="TParam">Type of the param item.</typeparam>
+    /// <param name="Function">Unary function item.</param>
+    /// <param name="Param">Parameter item.</param>
+    /// <typeparam name="TParam">Type of the param.</typeparam>
     /// <typeparam name="TResult">Type of the result.</typeparam>
-    public record StaticExecution<TParam, TResult>(Item.Function<TParam, TResult> Func, TParam Item)
+    public record UnaryExecute<TParam, TResult>(Item.Function<TParam, TResult> Function, TParam Param)
         : Group where TParam : Item where TResult : Item;
 
     /// <summary>
-    ///     Group for dynamically execute a function over the input text.
+    /// Group for executing a binary function item over a param item and text item.
     /// </summary>
-    /// <param name="Func">Function item to be executed.</param>
+    /// <param name="Function">Binary function item.</param>
+    /// <param name="Param">Parameter item.</param>
+    /// <param name="Text">Text item.</param>
+    /// <typeparam name="TParam">Type of the param.</typeparam>
     /// <typeparam name="TResult">Type of the result.</typeparam>
-    public record DynamicExecution<TResult>(Item.Function<Item.Atom<string>, TResult> Func)
-        : Group where TResult : Item;
-
-    /// <summary>
-    ///     Group for binary execution of a function over an item and the input text.
-    /// </summary>
-    /// <param name="Func">Binary function item.</param>
-    /// <param name="Item">Static item param.</param>
-    /// <typeparam name="TParam">Type of the static item param.</typeparam>
-    /// <typeparam name="TResult">Type of the result.</typeparam>
-    public record BinaryExecution<TParam, TResult>(
-        Item.Function<TParam, Item.Function<Item.Atom<string>, TResult>> Func,
-        TParam Item)
-        : Group where TParam : Item where TResult : Item;
+    public record BinaryExecute<TParam, TResult>(
+        Item.Function<TParam, Item.Function<Item.Atom<string>, TResult>> Function,
+        TParam Param,
+        Item.Atom<string> Text) : Group where TParam : Item where TResult : Item;
 }
