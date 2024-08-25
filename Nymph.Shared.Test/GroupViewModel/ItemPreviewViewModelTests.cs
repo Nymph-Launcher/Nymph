@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Nymph.Shared.Group;
+﻿using Nymph.Shared.Group;
 
 namespace Nymph.Shared.Test.GroupViewModel;
 

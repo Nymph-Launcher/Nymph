@@ -35,7 +35,7 @@ public abstract record Group
         : Group where TDecorator : Item where TValue : Item;
 
     /// <summary>
-    /// Group for executing a unary function item over a param item.
+    ///     Group for executing a unary function item over a param item.
     /// </summary>
     /// <param name="Function">Unary function item.</param>
     /// <param name="Param">Parameter item.</param>
@@ -45,7 +45,7 @@ public abstract record Group
         : Group where TParam : Item where TResult : Item;
 
     /// <summary>
-    /// Group for executing a binary function item over a param item and text item.
+    ///     Group for executing a binary function item over a param item and text item.
     /// </summary>
     /// <param name="Function">Binary function item.</param>
     /// <param name="Param">Parameter item.</param>
