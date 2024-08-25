@@ -48,7 +48,7 @@ public class ItemPreviewViewModelBuilderTests
     public void Build_WhenItemIsFunction_ReturnsFunctionPreviewViewModel()
     {
         var builder = _container.Resolve<IItemPreviewViewModelBuilder>();
-        var item = new Item.Function<Item.Atom<int>, Item.Atom<string>>("Display integer",
+        var item = new Item.Function<Item.Atom<int>, Item.Atom<string>>(new Item.FunctionSemantic("Display integer"),
             number => Task.FromResult(Seq([new Item.Atom<string>($"Number is {number}")])));
         var viewModel = builder.Build(item);
 

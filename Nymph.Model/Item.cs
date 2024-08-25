@@ -33,18 +33,24 @@ public abstract record Item
     /// <summary>
     ///     Item of a function over an item.
     /// </summary>
-    /// <param name="Name">Name of the function item.</param>
+    /// <param name="Semantic">Semantic to distinguish function items of the same type.</param>
     /// <param name="Execution">Execution function over a param item.</param>
     /// <param name="Validation">Validation predicate.</param>
-    /// <param name="ShouldManual">Should the execution be manually triggered.</param>
     /// <typeparam name="TParam">Type of the parameter.</typeparam>
     /// <typeparam name="TResult">Type of the result.</typeparam>
     public record Function<TParam, TResult>(
-        string Name,
+        FunctionSemantic Semantic,
         Func<TParam, Task<Seq<TResult>>> Execution,
-        Option<Predicate<TParam>> Validation = default,
-        bool ShouldManual = false)
+        Option<Predicate<TParam>> Validation = default)
         : Item where TParam : Item where TResult : Item;
+
+    /// <summary>
+    ///     Semantic of a function item.
+    /// </summary>
+    /// <param name="Name">Semantic name.</param>
+    /// <param name="ShouldManual">Whether the function should be only invoked manually.</param>
+    /// <param name="Tag">Tag to match the function.</param>
+    public record FunctionSemantic(string Name, bool ShouldManual = false, Option<object> Tag = default);
 
     /// <summary>
     ///     Item of a decorated item.
