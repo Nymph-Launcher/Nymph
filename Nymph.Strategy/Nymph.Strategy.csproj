@@ -7,6 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Nymph.Model\Nymph.Model.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Handler\"/>
+        <Folder Include="Middleware\"/>
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="LanguageExt.Core" Version="4.4.9"/>
     </ItemGroup>
 

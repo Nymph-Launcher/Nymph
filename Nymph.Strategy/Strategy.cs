@@ -1,4 +1,6 @@
-﻿namespace Nymph.Model.Strategy;
+﻿using Nymph.Model;
+
+namespace Nymph.Strategy;
 
 /// <summary>
 ///     The strategy to search groups.

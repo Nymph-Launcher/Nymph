@@ -1,4 +1,6 @@
-﻿namespace Nymph.Model.Strategy;
+﻿using Nymph.Model;
+
+namespace Nymph.Strategy;
 
 /// <summary>
 ///     A middleware that can modify the state and groups of a strategy handler.

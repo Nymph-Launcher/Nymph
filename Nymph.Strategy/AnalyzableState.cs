@@ -1,4 +1,6 @@
-﻿namespace Nymph.Model.Strategy;
+﻿using Nymph.Model;
+
+namespace Nymph.Strategy;
 
 /// <summary>
 ///     Represents the state with additional information for being analyzed.

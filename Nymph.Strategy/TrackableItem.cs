@@ -1,4 +1,6 @@
-﻿namespace Nymph.Model.Strategy;
+﻿using Nymph.Model;
+
+namespace Nymph.Strategy;
 
 /// <summary>
 ///     Represents an item with tracking information.
