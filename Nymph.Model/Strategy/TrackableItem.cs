@@ -16,6 +16,16 @@ public record TrackableItem(Item Item, Seq<IStrategyMiddleware> MiddlewarePipeli
     {
         return new TrackableItem(item);
     }
+
+    /// <summary>
+    ///     Adds a middleware to the pipeline.
+    /// </summary>
+    /// <param name="middleware">Middleware added.</param>
+    /// <returns>Trackable item.</returns>
+    public TrackableItem AddMiddleware(IStrategyMiddleware middleware)
+    {
+        return this with { MiddlewarePipeline = MiddlewarePipeline.Add(middleware) };
+    }
 }
 
 /// <summary>
@@ -35,5 +45,25 @@ public record TrackableItem<TItem>(TItem Item, Seq<IStrategyMiddleware> Middlewa
     public static TrackableItem<TItem> FromItem(TItem item)
     {
         return new TrackableItem<TItem>(item);
+    }
+
+    /// <summary>
+    ///     Implicitly converts a <see cref="TrackableItem{TItem}" /> to a <see cref="TrackableItem" />.
+    /// </summary>
+    /// <param name="trackableItem">Generic trackable item.</param>
+    /// <returns>Trackable item.</returns>
+    public static implicit operator TrackableItem(TrackableItem<TItem> trackableItem)
+    {
+        return new TrackableItem(trackableItem.Item, trackableItem.MiddlewarePipeline);
+    }
+
+    /// <summary>
+    ///     Adds a middleware to the pipeline.
+    /// </summary>
+    /// <param name="middleware">Middleware added.</param>
+    /// <returns>Trackable item.</returns>
+    public TrackableItem<TItem> AddMiddleware(IStrategyMiddleware middleware)
+    {
+        return this with { MiddlewarePipeline = MiddlewarePipeline.Add(middleware) };
     }
 }
